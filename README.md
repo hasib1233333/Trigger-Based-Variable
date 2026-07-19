@@ -1,8 +1,8 @@
-Title
+Title:
 Trigger-Based Variable-Fidelity Co-Simulation Scheduling for Reinforcement-Learning-Controlled Power-Electronic Systems: What Rigorous Validation Catches
 
-Abstract
+Abstract:
 Reinforcement-learning (RL) controllers for power-electronic systems are typically trained against simulators whose fidelity is fixed throughout the study. We present a trigger-based scheduler that switches a power-distribution co-simulation between three fidelity levels using an online, provably bounded estimate of divergence from the high-fidelity trajectory. Developing this scheduler surfaced three issues whose correction is as much the contribution as the scheduler itself. First, the conventional low-fidelity power-flow approximation ignores the voltage response to reactive power — exactly what our capacitor banks act on — carrying a 0.09 p.u. mean error; we replace it with a warm-started fast-decoupled power flow, cutting error by over 4×. Second, profiling the medium-fidelity solve showed its cost comes from rebuilding the Jacobian every iteration; a cached-Jacobian variant cuts cost roughly 3× at negligible accuracy loss. Third, validating the error bound against ground truth — rather than the scheduler's own bookkeeping — revealed violations on most low-fidelity steps, traced to a model-gap constant under-calibrated by roughly 450×; correcting it brings violations near zero. Evaluated over 10 seeds with confidence intervals against periodic switching, two independent baseline schedulers, and a trigger-signal ablation, the corrected scheduler achieves 1.3–1.5× speedups over always-high fidelity at a 6–12% accuracy cost relative to periodic switching, cutting training time roughly 30%; it does not dominate periodic switching on both axes despite an extensive search. We report this, and the bound-validation finding, as central results.
 
-Keywords
+Keywords:
 variable-fidelity co-simulation; reinforcement learning; power distribution networks; voltage regulation; error bound; real-time scheduling
